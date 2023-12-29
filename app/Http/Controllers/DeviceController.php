@@ -45,4 +45,17 @@ class DeviceController extends Controller
        /* For finding characters: return Device::where("device_name", "like", "%" .$device_name. "%")->get();*/
 
     }
+    function delete($id){
+        $device = Device::find($id);
+        $result= $device->delete();
+        if($result){
+            return["result"=>"Data has been deleted"];
+        }
+        else{
+            return["result"=>"Failed"];
+        }
+        
+
+
+    }
 }

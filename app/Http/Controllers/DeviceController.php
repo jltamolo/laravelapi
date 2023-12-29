@@ -11,4 +11,8 @@ class DeviceController extends Controller
         return $id?Device::find($id):Device::all();
 
     }
+    function add(){
+        return["result"=>"Data has been posted successfully"];
+
+    }
 }

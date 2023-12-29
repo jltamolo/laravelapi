@@ -20,3 +20,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 Route::get("data", [TrialController::class, 'getData']);
 Route::get("list/{id?}", [DeviceController::class, 'list']);
+Route::post("add",[DeviceController::class,'add']);

@@ -40,4 +40,9 @@ class DeviceController extends Controller
         }
         
 }
+    function search($device_name){
+        return Device::where("device_name", $device_name)->get();
+       /* For finding characters: return Device::where("device_name", "like", "%" .$device_name. "%")->get();*/
+
+    }
 }

@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TrialController;
 use App\Http\Controllers\DeviceController;
+use App\Http\Controllers\MemberController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -26,3 +27,5 @@ Route::get("search/{device_name}",[DeviceController::class,'search']);
 Route::delete("delete/{id}",[DeviceController::class,'delete']);
 Route::delete('devices/delete-multiple', [DeviceController::class, 'deleteMultiple']);
 Route::post("save",[DeviceController::class,'testData']);
+
+Route::apiResource("member", MemberController::class);

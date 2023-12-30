@@ -6,6 +6,7 @@ use App\Http\Controllers\TrialController;
 use App\Http\Controllers\DeviceController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\FileController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -38,3 +39,5 @@ Route::group(['middleware' => 'auth:sanctum'], function(){
 
 
 Route::post("login",[UserController::class,'index']);
+
+Route::post("upload",[FileController::class,'upload']);

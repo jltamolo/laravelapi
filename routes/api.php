@@ -18,11 +18,11 @@ use App\Http\Controllers\DeviceController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-/*Route::get("data", [TrialController::class, 'getData']);
-Route::get("list/{id?}", [DeviceController::class, 'list']);*/
+Route::get("data", [TrialController::class, 'getData']);
+Route::get("list/{id?}", [DeviceController::class, 'list']);
 Route::post("add",[DeviceController::class,'add']);
 Route::put("update",[DeviceController::class,'update']);
 Route::get("search/{device_name}",[DeviceController::class,'search']);
 Route::delete("delete/{id}",[DeviceController::class,'delete']);
 Route::delete('devices/delete-multiple', [DeviceController::class, 'deleteMultiple']);
-
+Route::post("save",[DeviceController::class,'testData']);

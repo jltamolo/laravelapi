@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Device;
+use Validator;
 
 class DeviceController extends Controller
 {
@@ -56,6 +57,32 @@ class DeviceController extends Controller
         }
         
 
+
+    }
+    function testData(Request $req){
+        $rules=array(
+            "device_code"=>"required|min:2|max:5"
+        );
+        $validator = Validator::make($req->all(), $rules);
+        if($validator->fails()){
+            return response()->json($validator->errors(), 401);
+        }
+        else{
+            $device = new Device;
+            $device->device_name=$req->device_name;
+            $device->device_description=$req->device_description;
+            $device->device_code=$req->device_code;
+            $result=$device->save();
+
+            if($result){
+                return["result"=>"Data has been posted successfully"];
+            }
+            else{
+                return["result"=>"Failed"];
+            }
+
+        }
+       
 
     }
 }
